@@ -3,147 +3,210 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HopeCare - Orphan Support</title>
-    <link rel="stylesheet" href="/src/index.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <meta name="description" content="HopeCare provides education, healthcare, and safe homes for orphaned children.">
+    <title>HopeCare | Orphan Support Network</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Header -->
     <header class="header">
-        <div class="container header-content">
-            <a href="#" class="logo">HopeCare.</a>
-            <nav class="nav">
+        <div class="container">
+            <a class="logo" href="index.html">HopeCare</a>
+            <nav aria-label="Main">
                 <ul class="nav-list">
-                    <li><a href="index.html">Home</a></li>
+                    <li><a class="active" href="index.html">Home</a></li>
                     <li><a href="about.html">About</a></li>
                     <li><a href="programs.html">Programs</a></li>
-                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="contact.php">Contact</a></li>
                 </ul>
             </nav>
-            <a href="#donate" class="btn btn-primary">Donate Now</a>
+            <a class="btn btn-primary" href="#donate">Donate</a>
         </div>
     </header>
 
-    <!-- Hero -->
-    <section id="home" class="hero">
-        <div class="hero-overlay"></div>
-        <div class="container hero-content">
-            <h1>Every Child Deserves a Loving Home</h1>
-            <p>Join us in providing education, healthcare, and safe environments for orphaned children around the world.</p>
-            <div class="hero-buttons">
-                <a href="#donate" class="btn btn-primary btn-large">Make a Donation</a>
-                <a href="about.html" class="btn btn-secondary btn-large">Learn More</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Stats -->
-    <section class="stats">
-        <div class="container stats-grid">
-            <div class="stat-item">
-                <h3>5,000+</h3>
-                <p>Children Supported</p>
-            </div>
-            <div class="stat-item">
-                <h3>120</h3>
-                <p>Partner Orphanages</p>
-            </div>
-            <div class="stat-item">
-                <h3>15</h3>
-                <p>Countries Reached</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Programs -->
-    <section id="programs" class="programs section">
-        <div class="container">
-            <div class="section-header">
-                <h2>Our Programs</h2>
-                <p>We focus on holistic development to ensure every child thrives and reaches their full potential.</p>
-            </div>
-            <div class="programs-grid">
-                <div class="program-card">
-                    <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=600&q=80" alt="Education">
-                    <div class="program-content">
-                        <h3>Quality Education</h3>
-                        <p>Providing school supplies, scholarships, and tutoring to help children build a bright future.</p>
+    <main>
+        <section class="hero">
+            <div class="container hero-grid">
+                <div class="reveal">
+                    <span class="eyebrow">Orphan Support Network</span>
+                    <h1>Restore safety, dignity, and a future for every child.</h1>
+                    <p>HopeCare partners with communities to give orphaned children a steady home, quality education, and the healthcare they deserve.</p>
+                    <div class="hero-actions">
+                        <a class="btn btn-primary" href="#donate">Sponsor a Child</a>
+                        <a class="btn btn-ghost" href="about.html">Our Story</a>
                     </div>
+                    <p class="hero-note">Trusted by 120 partner homes across 15 countries.</p>
                 </div>
-                <div class="program-card">
-                    <img src="https://images.unsplash.com/photo-1505576399279-565b52d4ac71?auto=format&fit=crop&w=600&q=80" alt="Healthcare">
-                    <div class="program-content">
-                        <h3>Healthcare & Nutrition</h3>
-                        <p>Ensuring access to medical checkups, vaccinations, and daily nutritious meals.</p>
-                    </div>
-                </div>
-                <div class="program-card">
-                    <img src="https://images.unsplash.com/photo-1516627145497-ae6968895b74?auto=format&fit=crop&w=600&q=80" alt="Safe Housing">
-                    <div class="program-content">
-                        <h3>Safe Housing</h3>
-                        <p>Funding infrastructure improvements and supporting foster care networks for a stable life.</p>
-                    </div>
+                <div class="hero-card reveal">
+                    <img src="https://images.unsplash.com/photo-1509099836639-18ba1795216d?auto=format&fit=crop&w=900&q=80" alt="Caregiver embracing a child">
                 </div>
             </div>
-        </div>
-    </section>
+            <div class="container impact-strip stagger">
+                <div>
+                    <h3>5,240+</h3>
+                    <p>Children supported</p>
+                </div>
+                <div>
+                    <h3>98%</h3>
+                    <p>School retention rate</p>
+                </div>
+                <div>
+                    <h3>1.4M</h3>
+                    <p>Meals served yearly</p>
+                </div>
+                <div>
+                    <h3>24/7</h3>
+                    <p>Emergency response</p>
+                </div>
+            </div>
+        </section>
 
-    <!-- Call to Action -->
-    <section id="donate" class="cta section">
-        <div class="container cta-content">
-            <h2>You Can Make a Difference Today</h2>
-            <p>Your contribution directly impacts the lives of vulnerable children. Together, we can give them hope and a future.</p>
-            <a href="#donate" class="btn btn-primary btn-large">Donate Now</a>
-        </div>
-    </section>
+        <section class="section section-muted">
+            <div class="container">
+                <div class="section-title">
+                    <span class="eyebrow">What We Do</span>
+                    <h2>Holistic programs built around every stage of childhood.</h2>
+                    <p>We focus on stability, learning, and well-being so each child can grow with confidence and community support.</p>
+                </div>
+                <div class="grid-3 stagger">
+                    <div class="card">
+                        <span class="tag">Education</span>
+                        <h3>Learning without limits</h3>
+                        <p>Scholarships, tutoring, and school readiness programs help children re-enter classrooms with confidence.</p>
+                    </div>
+                    <div class="card">
+                        <span class="tag">Health</span>
+                        <h3>Care that meets them early</h3>
+                        <p>Clinics, nutrition plans, and mental health support keep kids strong and resilient.</p>
+                    </div>
+                    <div class="card">
+                        <span class="tag">Home</span>
+                        <h3>Safe, family-style housing</h3>
+                        <p>We renovate orphanages and fund foster networks so children grow in stable, loving homes.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-    <!-- Footer -->
-    <footer id="contact" class="footer">
+        <section class="section">
+            <div class="container">
+                <div class="section-title">
+                    <span class="eyebrow">Featured Programs</span>
+                    <h2>Programs designed with local leaders and caregivers.</h2>
+                    <p>Every program is co-designed with our on-the-ground partners to respect culture, strengthen families, and keep children safe.</p>
+                </div>
+                <div class="program-card reveal">
+                    <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=900&q=80" alt="Student studying in class">
+                    <div>
+                        <span class="tag">Education</span>
+                        <h3>Bright Futures Academies</h3>
+                        <p>After-school learning hubs provide tutoring, mentorship, and access to technology for children who have lost their families.</p>
+                    </div>
+                </div>
+                <div class="program-card reveal">
+                    <img src="https://images.unsplash.com/photo-1505576399279-565b52d4ac71?auto=format&fit=crop&w=900&q=80" alt="Healthcare professional supporting a child">
+                    <div>
+                        <span class="tag">Health</span>
+                        <h3>Healthy Start Clinics</h3>
+                        <p>Mobile clinics and partner hospitals deliver pediatric care, vaccinations, and ongoing counseling.</p>
+                    </div>
+                </div>
+                <div class="program-card reveal">
+                    <img src="https://images.unsplash.com/photo-1516627145497-ae6968895b74?auto=format&fit=crop&w=900&q=80" alt="Safe home for children">
+                    <div>
+                        <span class="tag">Home</span>
+                        <h3>Safe Homes Initiative</h3>
+                        <p>We build dormitories, fund foster placements, and ensure every child has a warm bed and a family.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section section-muted">
+            <div class="container">
+                <div class="section-title">
+                    <span class="eyebrow">Community Impact</span>
+                    <h2>When we invest in children, entire communities rise.</h2>
+                    <p>We train caregivers, fund local social workers, and coordinate with schools so that support remains long after we leave.</p>
+                </div>
+                <div class="grid-3 stagger">
+                    <div class="card">
+                        <h3>Guardian Training</h3>
+                        <p>Over 1,200 caregivers trained in trauma-informed care and positive youth development.</p>
+                    </div>
+                    <div class="card">
+                        <h3>Family Reunification</h3>
+                        <p>We reunite children with extended families whenever it is safe and possible.</p>
+                    </div>
+                    <div class="card">
+                        <h3>Local Employment</h3>
+                        <p>Our programs create reliable jobs for local nurses, teachers, and social workers.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="donate" class="section">
+            <div class="container">
+                <div class="cta">
+                    <h2>Give a child a safe place to grow today.</h2>
+                    <p>Your gift supports meals, school uniforms, counseling, and a trusted caregiver who stays with a child every day.</p>
+                    <div class="cta-actions">
+                        <a class="btn btn-primary" href="contact.php">Start Sponsorship</a>
+                        <a class="btn btn-outline" href="programs.html">Explore Programs</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
         <div class="container footer-grid">
-            <div class="footer-about">
-                <a href="#" class="logo">HopeCare.</a>
-                <p>Dedicated to empowering orphaned and vulnerable children worldwide through education, health, and love.</p>
+            <div>
+                <a class="logo" href="index.html">HopeCare</a>
+                <p>HopeCare is a global support network focused on stability, education, and health for orphaned children.</p>
             </div>
-            <div class="footer-links">
+            <div>
                 <h4>Quick Links</h4>
                 <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="about.html">About Us</a></li>
-                    <li><a href="programs.html">Our Programs</a></li>
-                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="programs.html">Programs</a></li>
+                    <li><a href="contact.php">Contact</a></li>
                 </ul>
             </div>
-            <div class="footer-contact">
-                <h4>Contact Us</h4>
+            <div>
+                <h4>Contact</h4>
                 <p>Email: hello@hopecare.org</p>
                 <p>Phone: +1 (555) 123-4567</p>
-                <p>Address: 123 Hope Street, NY 10001</p>
+                <p>Address: 123 Hope Street, New York, NY</p>
             </div>
         </div>
         <div class="footer-bottom">
             <p>&copy; 2026 HopeCare. All rights reserved.</p>
         </div>
     </footer>
-    <!-- SOS Feature -->
-    <button class="sos-btn" onclick="toggleSOS()">SOS</button>
-    
-    <div class="sos-modal" id="sosModal">
+
+    <button class="sos-btn" type="button" aria-controls="sosModal" onclick="toggleSOS()">SOS</button>
+    <div class="sos-modal" id="sosModal" role="dialog" aria-modal="true" aria-hidden="true">
         <div class="sos-content">
-            <span class="sos-close" onclick="toggleSOS()">&times;</span>
+            <button class="sos-close" type="button" aria-label="Close" onclick="toggleSOS()">&times;</button>
             <h2>Emergency SOS</h2>
-            <p>If a child is in immediate danger, please contact local authorities immediately or use our emergency hotlines.</p>
+            <p>If a child is in immediate danger, contact local authorities immediately or call our emergency response line.</p>
             <div class="sos-actions">
-                <a href="tel:911" class="btn btn-danger btn-large">Call Local Emergency (911)</a>
-                <a href="tel:+18001234567" class="btn btn-primary btn-large">Call HopeCare Hotline</a>
-                <button class="btn btn-outline" onclick="toggleSOS()">Cancel</button>
+                <a class="btn btn-primary" href="tel:+18001234567">Call HopeCare Hotline</a>
+                <a class="btn btn-ghost" href="tel:911">Call Local Emergency (911)</a>
+                <button class="btn btn-outline" type="button" onclick="toggleSOS()">Cancel</button>
             </div>
         </div>
     </div>
 
     <script>
         function toggleSOS() {
-            const modal = document.getElementById('sosModal');
-            modal.classList.toggle('active');
+            const modal = document.getElementById("sosModal");
+            const isOpen = modal.classList.toggle("active");
+            modal.setAttribute("aria-hidden", String(!isOpen));
         }
     </script>
 </body>

@@ -1,20 +1,13 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
+# HopeCare Website
 
-# Run and deploy your AI Studio app
-
-This contains everything you need to run your app locally.
-
-View your app in AI Studio: https://ai.studio/apps/0d91465f-03db-4ff8-b37d-e2d567976ded
+Professional, static HTML/CSS pages with a lightweight PHP contact form.
 
 ## Run Locally
 
-**Prerequisites:**  Node.js
+1. From the project root, start a local PHP server:
+   `php -S localhost:8000`
+2. Open `http://localhost:8000/index.html`
 
+## Contact Form
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+Contact submissions are stored in `data/messages.csv`. Ensure the `data` directory is writable by your PHP server.
