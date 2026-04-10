@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programs - HopeCare</title>
+    <link rel="stylesheet" href="/src/index.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header solid">
+        <div class="container header-content">
+            <a href="index.html" class="logo">HopeCare.</a>
+            <nav class="nav">
+                <ul class="nav-list">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="programs.html">Programs</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+            <a href="index.html#donate" class="btn btn-primary">Donate Now</a>
+        </div>
+    </header>
+
+    <section class="inner-hero">
+        <div class="container">
+            <h1>Our Programs</h1>
+            <p>Comprehensive support for every stage of a child's development.</p>
+        </div>
+    </section>
+
+    <section class="programs section">
+        <div class="container">
+            <div class="programs-grid">
+                <!-- Program 1 -->
+                <div class="program-card">
+                    <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=600&q=80" alt="Education">
+                    <div class="program-content">
+                        <h3>Quality Education</h3>
+                        <p>Providing school supplies, scholarships, and tutoring to help children build a bright future. We partner with local schools to ensure every child has access to learning materials and dedicated teachers.</p>
+                    </div>
+                </div>
+                <!-- Program 2 -->
+                <div class="program-card">
+                    <img src="https://images.unsplash.com/photo-1505576399279-565b52d4ac71?auto=format&fit=crop&w=600&q=80" alt="Healthcare">
+                    <div class="program-content">
+                        <h3>Healthcare & Nutrition</h3>
+                        <p>Ensuring access to medical checkups, vaccinations, and daily nutritious meals. Our on-site clinics provide preventative care and immediate treatment for common childhood illnesses.</p>
+                    </div>
+                </div>
+                <!-- Program 3 -->
+                <div class="program-card">
+                    <img src="https://images.unsplash.com/photo-1516627145497-ae6968895b74?auto=format&fit=crop&w=600&q=80" alt="Safe Housing">
+                    <div class="program-content">
+                        <h3>Safe Housing</h3>
+                        <p>Funding infrastructure improvements and supporting foster care networks for a stable life. We build secure dormitories and family-style homes where children feel safe and loved.</p>
+                    </div>
+                </div>
+                <!-- Program 4 -->
+                <div class="program-card">
+                    <img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&w=600&q=80" alt="Psychological Support">
+                    <div class="program-content">
+                        <h3>Trauma Counseling</h3>
+                        <p>Professional psychological support to help children process trauma and build emotional resilience through art therapy, group sessions, and individual counseling.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-grid">
+            <div class="footer-about">
+                <a href="index.html" class="logo">HopeCare.</a>
+                <p>Dedicated to empowering orphaned and vulnerable children worldwide through education, health, and love.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="programs.html">Our Programs</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h4>Contact Us</h4>
+                <p>Email: hello@hopecare.org</p>
+                <p>Phone: +1 (555) 123-4567</p>
+                <p>Address: 123 Hope Street, NY 10001</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 HopeCare. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- SOS Feature -->
+    <button class="sos-btn" onclick="toggleSOS()">SOS</button>
+    <div class="sos-modal" id="sosModal">
+        <div class="sos-content">
+            <span class="sos-close" onclick="toggleSOS()">&times;</span>
+            <h2>Emergency SOS</h2>
+            <p>If a child is in immediate danger, please contact local authorities immediately or use our emergency hotlines.</p>
+            <div class="sos-actions">
+                <a href="tel:911" class="btn btn-danger btn-large">Call Local Emergency (911)</a>
+                <a href="tel:+18001234567" class="btn btn-primary btn-large">Call HopeCare Hotline</a>
+                <button class="btn btn-outline" onclick="toggleSOS()">Cancel</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        function toggleSOS() {
+            const modal = document.getElementById('sosModal');
+            modal.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>
