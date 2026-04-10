@@ -1,10 +1,13 @@
+<?php
+$showError = isset($_GET["error"]);
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Explore the HopeCare programs supporting orphaned children.">
-    <title>Programs | HopeCare</title>
+    <meta name="description" content="Donate to HopeCare and help orphaned children thrive.">
+    <title>Donate | HopeCare</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -18,7 +21,7 @@
                 <ul class="nav-list">
                     <li><a href="index.html">Home</a></li>
                     <li><a href="about.html">About</a></li>
-                    <li><a class="active" href="programs.html">Programs</a></li>
+                    <li><a href="programs.html">Programs</a></li>
                     <li><a href="donation-track.php">Track</a></li>
                     <li><a href="contact.php">Contact</a></li>
                 </ul>
@@ -30,68 +33,68 @@
     <main>
         <section class="page-hero">
             <div class="container">
-                <span class="eyebrow">Programs</span>
-                <h1>Purposeful care, from emergency response to lifelong guidance.</h1>
-                <p>We provide services that meet children where they are, with a focus on stability, health, and learning.</p>
+                <span class="eyebrow">Donate</span>
+                <h1>Support a child with steady care and opportunity.</h1>
+                <p>Your donation funds meals, school supplies, healthcare visits, and safe housing programs.</p>
             </div>
         </section>
 
         <section class="section">
-            <div class="container">
-                <div class="program-card reveal">
-                    <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=900&q=80" alt="Education support">
-                    <div>
-                        <span class="tag">Education</span>
-                        <h3>Bright Futures Academies</h3>
-                        <p>Scholarships, tutoring, and school supplies keep children on track from primary school through graduation.</p>
-                    </div>
+            <div class="container donation-grid">
+                <div class="form-card reveal">
+                    <h2>Make a Donation</h2>
+                    <p>Every contribution is tracked so you can follow the impact of your support.</p>
+                    <?php if ($showError) { ?>
+                        <div class="notice">Please complete all required fields correctly.</div>
+                    <?php } ?>
+                    <form method="post" action="donation-submit.php">
+                        <div class="form-group">
+                            <label for="donor_name">Full Name</label>
+                            <input id="donor_name" name="donor_name" type="text" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="donor_email">Email Address</label>
+                            <input id="donor_email" name="donor_email" type="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="amount">Donation Amount (USD)</label>
+                            <input id="amount" name="amount" type="number" min="5" step="1" placeholder="50" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="purpose">Donation Purpose</label>
+                            <select id="purpose" name="purpose" required>
+                                <option value="">Select a purpose...</option>
+                                <option value="education">Education support</option>
+                                <option value="health">Healthcare & nutrition</option>
+                                <option value="housing">Safe housing</option>
+                                <option value="emergency">Emergency relief</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="note">Message (optional)</label>
+                            <textarea id="note" name="note" placeholder="Share any notes for our team."></textarea>
+                        </div>
+                        <button class="btn btn-primary" type="submit">Submit Donation</button>
+                        <p class="hero-note">You will receive a tracking code instantly.</p>
+                    </form>
                 </div>
-                <div class="program-card reveal">
-                    <img src="https://images.unsplash.com/photo-1505576399279-565b52d4ac71?auto=format&fit=crop&w=900&q=80" alt="Healthcare and nutrition">
-                    <div>
-                        <span class="tag">Health</span>
-                        <h3>Healthy Start Clinics</h3>
-                        <p>Pediatric care, vaccinations, and nutrition plans are delivered through mobile clinics and partner hospitals.</p>
-                    </div>
-                </div>
-                <div class="program-card reveal">
-                    <img src="https://images.unsplash.com/photo-1516627145497-ae6968895b74?auto=format&fit=crop&w=900&q=80" alt="Safe housing">
-                    <div>
-                        <span class="tag">Home</span>
-                        <h3>Safe Homes Initiative</h3>
-                        <p>We refurbish orphanages, fund family-style housing, and ensure every child has a trusted caregiver.</p>
-                    </div>
-                </div>
-                <div class="program-card reveal">
-                    <img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&w=900&q=80" alt="Emotional support">
-                    <div>
-                        <span class="tag">Counseling</span>
-                        <h3>Trauma Recovery Program</h3>
-                        <p>Counselors provide therapy, peer support, and creative workshops to build emotional resilience.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="section section-muted">
-            <div class="container">
-                <div class="section-title">
-                    <span class="eyebrow">How We Work</span>
-                    <h2>Local partnerships create long-term impact.</h2>
-                    <p>We collaborate with governments, schools, and healthcare systems so children remain supported even after they leave our programs.</p>
-                </div>
-                <div class="grid-3 stagger">
+                <div class="stack-card reveal">
                     <div class="card">
-                        <h3>Community assessments</h3>
-                        <p>We identify urgent needs and design programs with local stakeholders.</p>
+                        <span class="eyebrow">Impact</span>
+                        <h3>$25</h3>
+                        <p>Provides school supplies for one child for a semester.</p>
                     </div>
                     <div class="card">
-                        <h3>Ongoing monitoring</h3>
-                        <p>Teams track progress and adjust services based on child outcomes.</p>
+                        <h3>$60</h3>
+                        <p>Covers medical checkups and basic medicine.</p>
                     </div>
                     <div class="card">
-                        <h3>Family reintegration</h3>
-                        <p>We prioritize family reunification whenever it is safe and possible.</p>
+                        <h3>$120</h3>
+                        <p>Funds nutritious meals for a child for an entire month.</p>
+                    </div>
+                    <div class="card">
+                        <h3>Track your support</h3>
+                        <p>Already donated? <a class="inline-link" href="donation-track.php">Track your donation</a>.</p>
                     </div>
                 </div>
             </div>
@@ -102,7 +105,7 @@
         <div class="container footer-grid">
             <div>
                 <a class="logo" href="index.html">HopeCare</a>
-                <p>HopeCare partners with communities to provide safety, education, and health for orphaned children.</p>
+                <p>HopeCare provides safety, education, and health programs for orphaned children.</p>
             </div>
             <div>
                 <h4>Quick Links</h4>

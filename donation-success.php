@@ -1,10 +1,14 @@
+<?php
+$trackingId = isset($_GET["id"]) ? htmlspecialchars($_GET["id"], ENT_QUOTES, "UTF-8") : "";
+$donorEmail = isset($_GET["email"]) ? htmlspecialchars($_GET["email"], ENT_QUOTES, "UTF-8") : "";
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Thank you for contacting HopeCare.">
-    <title>Message Sent | HopeCare</title>
+    <meta name="description" content="Donation received by HopeCare.">
+    <title>Donation Received | HopeCare</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -31,11 +35,16 @@
         <section class="page-hero">
             <div class="container">
                 <span class="eyebrow">Thank You</span>
-                <h1>Your message has been sent.</h1>
-                <p>Our team will respond within two business days. We appreciate your support.</p>
+                <h1>Your donation has been received.</h1>
+                <p>We have logged your contribution and will keep you updated on its impact.</p>
+                <div class="tracking-card">
+                    <p class="tracking-label">Your tracking code</p>
+                    <h2><?php echo $trackingId !== "" ? $trackingId : "Check your email"; ?></h2>
+                    <p class="hero-note">Use this code with your email to track progress.</p>
+                </div>
                 <div class="hero-actions center">
-                    <a class="btn btn-primary" href="index.html">Back to Home</a>
-                    <a class="btn btn-ghost" href="programs.html">View Programs</a>
+                    <a class="btn btn-primary" href="donation-track.php?tracking_id=<?php echo urlencode($trackingId); ?>&email=<?php echo urlencode($donorEmail); ?>">Track Donation</a>
+                    <a class="btn btn-ghost" href="index.html">Back to Home</a>
                 </div>
             </div>
         </section>

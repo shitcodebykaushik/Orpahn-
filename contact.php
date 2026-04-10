@@ -22,10 +22,11 @@ $showError = isset($_GET["error"]);
                     <li><a href="index.html">Home</a></li>
                     <li><a href="about.html">About</a></li>
                     <li><a href="programs.html">Programs</a></li>
+                    <li><a href="donation-track.php">Track</a></li>
                     <li><a class="active" href="contact.php">Contact</a></li>
                 </ul>
             </nav>
-            <a class="btn btn-primary" href="index.html#donate">Donate</a>
+            <a class="btn btn-primary" href="donation.php">Donate</a>
         </div>
     </header>
 
@@ -94,6 +95,7 @@ $showError = isset($_GET["error"]);
                 <ul>
                     <li><a href="about.html">About</a></li>
                     <li><a href="programs.html">Programs</a></li>
+                    <li><a href="donation-track.php">Track Donation</a></li>
                     <li><a href="contact.php">Contact</a></li>
                 </ul>
             </div>
@@ -123,6 +125,21 @@ $showError = isset($_GET["error"]);
         </div>
     </div>
 
+    <button class="chat-toggle" id="chatToggle" type="button">Chat</button>
+    <div class="chat-panel" id="chatPanel" aria-live="polite">
+        <div class="chat-header">
+            <h4>HopeCare Assistant</h4>
+            <button class="chat-close" id="chatClose" type="button">&times;</button>
+        </div>
+        <div class="chat-body" id="chatMessages">
+            <div class="chat-message bot">Hi! I can share ways to support orphaned children or explain our programs.</div>
+        </div>
+        <form class="chat-form" id="chatForm">
+            <input id="chatInput" type="text" placeholder="Ask about orphan support..." required>
+            <button class="btn btn-primary" type="submit">Send</button>
+        </form>
+    </div>
+
     <script>
         function toggleSOS() {
             const modal = document.getElementById("sosModal");
@@ -130,5 +147,6 @@ $showError = isset($_GET["error"]);
             modal.setAttribute("aria-hidden", String(!isOpen));
         }
     </script>
+    <script src="js/chatbot.js"></script>
 </body>
 </html>
