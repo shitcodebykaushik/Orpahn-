@@ -24,6 +24,7 @@ $showError = isset($_GET["error"]);
                     <li><a href="programs.html">Programs</a></li>
                     <li><a class="active" href="adoption.php">Adoption</a></li>
                     <li><a href="adoption-track.php">Track</a></li>
+                    <li><a href="blockchain-ledger.php">Ledger</a></li>
                     <li><a href="contact.php">Contact</a></li>
                 </ul>
             </nav>
@@ -119,6 +120,7 @@ $showError = isset($_GET["error"]);
                     <li><a href="programs.html">Programs</a></li>
                     <li><a href="adoption-track.php">Track Adoption</a></li>
                     <li><a href="donation-track.php">Track Donation</a></li>
+                    <li><a href="blockchain-ledger.php">Blockchain Ledger</a></li>
                     <li><a href="admin-login.php">Admin Login</a></li>
                 </ul>
             </div>

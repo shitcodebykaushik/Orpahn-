@@ -71,6 +71,7 @@ if ($trackingId !== "" && $email !== "") {
                     <li><a href="programs.html">Programs</a></li>
                     <li><a href="adoption.php">Adoption</a></li>
                     <li><a class="active" href="donation-track.php">Track</a></li>
+                    <li><a href="blockchain-ledger.php">Ledger</a></li>
                     <li><a href="contact.php">Contact</a></li>
                 </ul>
             </nav>
@@ -159,6 +160,7 @@ if ($trackingId !== "" && $email !== "") {
                     <li><a href="programs.html">Programs</a></li>
                     <li><a href="adoption.php">Adoption</a></li>
                     <li><a href="donation.php">Donate</a></li>
+                    <li><a href="blockchain-ledger.php">Blockchain Ledger</a></li>
                     <li><a href="contact.php">Contact</a></li>
                     <li><a href="admin-login.php">Admin Login</a></li>
                 </ul>

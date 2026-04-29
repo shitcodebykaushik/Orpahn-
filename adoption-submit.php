@@ -1,4 +1,5 @@
 <?php
+require __DIR__ . "/blockchain.php";
 if ($_SERVER["REQUEST_METHOD"] !== "POST") {
     header("Location: adoption.php");
     exit;
@@ -48,6 +49,12 @@ if ($handle) {
     flock($handle, LOCK_UN);
     fclose($handle);
 }
+
+append_block("adoption_created", $trackingId, [
+    "child_pref" => $childPref,
+    "location" => $location,
+    "status" => $status
+]);
 
 header("Location: adoption-success.php?id=" . urlencode($trackingId) . "&email=" . urlencode($applicantEmail));
 exit;

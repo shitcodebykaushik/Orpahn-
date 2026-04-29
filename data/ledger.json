@@ -1,0 +1,27 @@
+[
+    {
+        "index": 0,
+        "timestamp": "2026-04-29 05:42:18",
+        "type": "genesis",
+        "record_id": "0",
+        "payload": {
+            "message": "Genesis block"
+        },
+        "prev_hash": "0",
+        "hash": "3cf8691301a2e3776c722e3188c2300b7f51c6d38a72ac29ae80077872107531"
+    },
+    {
+        "index": 1,
+        "timestamp": "2026-04-29 05:42:44",
+        "type": "donation_created",
+        "record_id": "HC-20260429-2E4D",
+        "payload": {
+            "amount": "40.00",
+            "currency": "USD",
+            "purpose": "health",
+            "status": "Pending"
+        },
+        "prev_hash": "3cf8691301a2e3776c722e3188c2300b7f51c6d38a72ac29ae80077872107531",
+        "hash": "e71ff1e0b13f863673c0ecc6ef3465454ddd563f67a21080dbfb3958362e8a6c"
+    }
+]

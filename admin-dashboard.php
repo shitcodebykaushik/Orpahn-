@@ -5,6 +5,8 @@ if (!isset($_SESSION["admin_logged_in"])) {
     exit;
 }
 
+require __DIR__ . "/blockchain.php";
+
 function read_rows($filePath, $minColumns, $padTo) {
     if (!file_exists($filePath)) {
         return [];
@@ -53,30 +55,46 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     if ($trackingId !== "" && in_array($status, $allowedStatuses, true)) {
         if ($type === "donation") {
             $rows = read_rows($donationFile, 9, 10);
+            $updated = false;
             foreach ($rows as &$row) {
                 if ($row[1] === $trackingId) {
                     $row[7] = $status;
                     $row[9] = $assignedTo;
                     $notice = "Donation updated.";
+                    $updated = true;
                     break;
                 }
             }
             unset($row);
             write_rows($donationFile, $rows);
+            if ($updated) {
+                append_block("donation_updated", $trackingId, [
+                    "status" => $status,
+                    "assigned_to" => $assignedTo
+                ]);
+            }
         }
 
         if ($type === "adoption") {
             $rows = read_rows($adoptionFile, 9, 10);
+            $updated = false;
             foreach ($rows as &$row) {
                 if ($row[1] === $trackingId) {
                     $row[7] = $status;
                     $row[9] = $assignedTo;
                     $notice = "Adoption request updated.";
+                    $updated = true;
                     break;
                 }
             }
             unset($row);
             write_rows($adoptionFile, $rows);
+            if ($updated) {
+                append_block("adoption_updated", $trackingId, [
+                    "status" => $status,
+                    "assigned_to" => $assignedTo
+                ]);
+            }
         }
     }
 }
@@ -104,7 +122,10 @@ $adoptions = read_rows($adoptionFile, 9, 10);
                     <span class="eyebrow">Admin Dashboard</span>
                     <h1>HopeCare Operations</h1>
                 </div>
-                <a class="btn btn-ghost" href="admin-logout.php">Logout</a>
+                <div class="admin-actions">
+                    <a class="btn btn-ghost" href="blockchain-ledger.php">View Ledger</a>
+                    <a class="btn btn-ghost" href="admin-logout.php">Logout</a>
+                </div>
             </div>
 
             <?php if ($notice !== "") { ?>

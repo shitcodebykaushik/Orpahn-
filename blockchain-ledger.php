@@ -1,10 +1,14 @@
+<?php
+require __DIR__ . "/blockchain.php";
+$ledger = array_reverse(read_ledger());
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Thank you for contacting HopeCare.">
-    <title>Message Sent | HopeCare</title>
+    <meta name="description" content="HopeCare transparency ledger.">
+    <title>Blockchain Ledger | HopeCare</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -21,7 +25,7 @@
                     <li><a href="programs.html">Programs</a></li>
                     <li><a href="adoption.php">Adoption</a></li>
                     <li><a href="donation-track.php">Track</a></li>
-                    <li><a href="blockchain-ledger.php">Ledger</a></li>
+                    <li><a class="active" href="blockchain-ledger.php">Ledger</a></li>
                     <li><a href="contact.php">Contact</a></li>
                 </ul>
             </nav>
@@ -32,12 +36,34 @@
     <main>
         <section class="page-hero">
             <div class="container">
-                <span class="eyebrow">Thank You</span>
-                <h1>Your message has been sent.</h1>
-                <p>Our team will respond within two business days. We appreciate your support.</p>
-                <div class="hero-actions center">
-                    <a class="btn btn-primary" href="index.html">Back to Home</a>
-                    <a class="btn btn-ghost" href="programs.html">View Programs</a>
+                <span class="eyebrow">Transparency Ledger</span>
+                <h1>Immutable record of donation and adoption updates.</h1>
+                <p>This is a demo blockchain ledger stored locally for transparency and learning.</p>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <div class="ledger-card">
+                    <h2>Latest Blocks</h2>
+                    <div class="ledger-table">
+                        <div class="ledger-row ledger-head">
+                            <span>Index</span>
+                            <span>Timestamp</span>
+                            <span>Type</span>
+                            <span>Record ID</span>
+                            <span>Hash</span>
+                        </div>
+                        <?php foreach ($ledger as $block) { ?>
+                            <div class="ledger-row">
+                                <span><?php echo htmlspecialchars($block["index"], ENT_QUOTES, "UTF-8"); ?></span>
+                                <span><?php echo htmlspecialchars($block["timestamp"], ENT_QUOTES, "UTF-8"); ?></span>
+                                <span><?php echo htmlspecialchars($block["type"], ENT_QUOTES, "UTF-8"); ?></span>
+                                <span><?php echo htmlspecialchars($block["record_id"], ENT_QUOTES, "UTF-8"); ?></span>
+                                <span class="hash-cell"><?php echo htmlspecialchars($block["hash"], ENT_QUOTES, "UTF-8"); ?></span>
+                            </div>
+                        <?php } ?>
+                    </div>
                 </div>
             </div>
         </section>
@@ -47,7 +73,7 @@
         <div class="container footer-grid">
             <div>
                 <a class="logo" href="index.html">HopeCare</a>
-                <p>HopeCare provides safety, education, and health programs for orphaned children.</p>
+                <p>HopeCare is committed to transparency in every step of support.</p>
             </div>
             <div>
                 <h4>Quick Links</h4>
@@ -55,9 +81,7 @@
                     <li><a href="about.html">About</a></li>
                     <li><a href="programs.html">Programs</a></li>
                     <li><a href="adoption.php">Adoption</a></li>
-                    <li><a href="donation-track.php">Track Donation</a></li>
-                    <li><a href="blockchain-ledger.php">Blockchain Ledger</a></li>
-                    <li><a href="contact.php">Contact</a></li>
+                    <li><a href="donation.php">Donate</a></li>
                     <li><a href="admin-login.php">Admin Login</a></li>
                 </ul>
             </div>
@@ -72,22 +96,5 @@
             <p>&copy; 2026 HopeCare. All rights reserved.</p>
         </div>
     </footer>
-
-    <button class="chat-toggle" id="chatToggle" type="button">Chat</button>
-    <div class="chat-panel" id="chatPanel" aria-live="polite">
-        <div class="chat-header">
-            <h4>HopeCare Assistant</h4>
-            <button class="chat-close" id="chatClose" type="button">&times;</button>
-        </div>
-        <div class="chat-body" id="chatMessages">
-            <div class="chat-message bot">Hi! I can share ways to support orphaned children or explain our programs.</div>
-        </div>
-        <form class="chat-form" id="chatForm">
-            <input id="chatInput" type="text" placeholder="Ask about orphan support..." required>
-            <button class="btn btn-primary" type="submit">Send</button>
-        </form>
-    </div>
-
-    <script src="js/chatbot.js"></script>
 </body>
 </html>

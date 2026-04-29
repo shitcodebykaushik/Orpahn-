@@ -1,4 +1,5 @@
 <?php
+require __DIR__ . "/blockchain.php";
 if ($_SERVER["REQUEST_METHOD"] !== "POST") {
     header("Location: donation.php");
     exit;
@@ -48,6 +49,13 @@ if ($handle) {
     flock($handle, LOCK_UN);
     fclose($handle);
 }
+
+append_block("donation_created", $trackingId, [
+    "amount" => number_format($amount, 2, ".", ""),
+    "currency" => $currency,
+    "purpose" => $purpose,
+    "status" => $status
+]);
 
 header("Location: donation-success.php?id=" . urlencode($trackingId) . "&email=" . urlencode($donorEmail));
 exit;
