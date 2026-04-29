@@ -4,7 +4,7 @@ $email = trim((string) ($_GET["email"] ?? ""));
 $result = null;
 $error = "";
 
-function read_donations($filePath) {
+function read_adoptions($filePath) {
     if (!file_exists($filePath)) {
         return [];
     }
@@ -24,27 +24,27 @@ function read_donations($filePath) {
 }
 
 if ($trackingId !== "" && $email !== "") {
-    $donations = read_donations(__DIR__ . "/data/donations.csv");
-    foreach ($donations as $donation) {
-        if (strcasecmp($donation[1], $trackingId) === 0 && strcasecmp($donation[3], $email) === 0) {
+    $adoptions = read_adoptions(__DIR__ . "/data/adoptions.csv");
+    foreach ($adoptions as $adoption) {
+        if (strcasecmp($adoption[1], $trackingId) === 0 && strcasecmp($adoption[3], $email) === 0) {
             $result = [
-                "timestamp" => $donation[0],
-                "tracking_id" => $donation[1],
-                "name" => $donation[2],
-                "email" => $donation[3],
-                "amount" => $donation[4],
-                "currency" => $donation[5],
-                "purpose" => $donation[6],
-                "status" => $donation[7],
-                "note" => $donation[8],
-                "assigned_to" => $donation[9]
+                "timestamp" => $adoption[0],
+                "tracking_id" => $adoption[1],
+                "name" => $adoption[2],
+                "email" => $adoption[3],
+                "phone" => $adoption[4],
+                "child_pref" => $adoption[5],
+                "location" => $adoption[6],
+                "status" => $adoption[7],
+                "note" => $adoption[8],
+                "assigned_to" => $adoption[9]
             ];
             break;
         }
     }
 
     if ($result === null) {
-        $error = "We could not find a donation with that tracking code and email.";
+        $error = "We could not find a request with that tracking code and email.";
     }
 }
 ?>
@@ -53,8 +53,8 @@ if ($trackingId !== "" && $email !== "") {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Track your HopeCare donation.">
-    <title>Track Donation | HopeCare</title>
+    <meta name="description" content="Track your HopeCare adoption request.">
+    <title>Track Adoption | HopeCare</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -69,8 +69,7 @@ if ($trackingId !== "" && $email !== "") {
                     <li><a href="index.html">Home</a></li>
                     <li><a href="about.html">About</a></li>
                     <li><a href="programs.html">Programs</a></li>
-                    <li><a href="adoption.php">Adoption</a></li>
-                    <li><a class="active" href="donation-track.php">Track</a></li>
+                    <li><a class="active" href="adoption-track.php">Track</a></li>
                     <li><a href="contact.php">Contact</a></li>
                 </ul>
             </nav>
@@ -81,8 +80,8 @@ if ($trackingId !== "" && $email !== "") {
     <main>
         <section class="page-hero">
             <div class="container">
-                <span class="eyebrow">Donation Tracking</span>
-                <h1>Follow the progress of your support.</h1>
+                <span class="eyebrow">Adoption Tracking</span>
+                <h1>Follow the progress of your adoption request.</h1>
                 <p>Enter your tracking code and email to view the latest status.</p>
             </div>
         </section>
@@ -90,8 +89,8 @@ if ($trackingId !== "" && $email !== "") {
         <section class="section">
             <div class="container donation-grid">
                 <div class="form-card reveal">
-                    <h2>Track Donation</h2>
-                    <form method="get" action="donation-track.php">
+                    <h2>Track Adoption</h2>
+                    <form method="get" action="adoption-track.php">
                         <div class="form-group">
                             <label for="tracking_id">Tracking Code</label>
                             <input id="tracking_id" name="tracking_id" type="text" value="<?php echo htmlspecialchars($trackingId, ENT_QUOTES, "UTF-8"); ?>" required>
@@ -116,23 +115,23 @@ if ($trackingId !== "" && $email !== "") {
                             <p>Assigned to: <?php echo $result["assigned_to"] !== "" ? htmlspecialchars($result["assigned_to"], ENT_QUOTES, "UTF-8") : "Awaiting assignment"; ?></p>
                         </div>
                         <div class="card">
-                            <h3>Donation Details</h3>
+                            <h3>Request Details</h3>
                             <p><strong>Tracking ID:</strong> <?php echo htmlspecialchars($result["tracking_id"], ENT_QUOTES, "UTF-8"); ?></p>
-                            <p><strong>Amount:</strong> <?php echo htmlspecialchars($result["currency"], ENT_QUOTES, "UTF-8"); ?> <?php echo htmlspecialchars($result["amount"], ENT_QUOTES, "UTF-8"); ?></p>
-                            <p><strong>Purpose:</strong> <?php echo htmlspecialchars(ucfirst($result["purpose"]), ENT_QUOTES, "UTF-8"); ?></p>
+                            <p><strong>Child age preference:</strong> <?php echo htmlspecialchars($result["child_pref"], ENT_QUOTES, "UTF-8"); ?></p>
+                            <p><strong>Preferred location:</strong> <?php echo htmlspecialchars($result["location"], ENT_QUOTES, "UTF-8"); ?></p>
                         </div>
                         <div class="card">
                             <h3>Next Steps</h3>
-                            <p>Our team will update the status as funds are allocated. You can check back any time.</p>
+                            <p>Our specialists will contact you with the next steps and documentation checklist.</p>
                         </div>
                     <?php } else { ?>
                         <div class="card">
                             <span class="eyebrow">How it works</span>
                             <h3>Statuses you may see</h3>
                             <ul class="status-list">
-                                <li><span class="status-pill pending">Pending</span> Donation received and queued for processing.</li>
-                                <li><span class="status-pill confirmed">Confirmed</span> Funds allocated to a program or child.</li>
-                                <li><span class="status-pill delivered">Delivered</span> Impact report recorded and shared.</li>
+                                <li><span class="status-pill pending">Pending</span> Request received and queued.</li>
+                                <li><span class="status-pill confirmed">Confirmed</span> Specialist assigned and documentation underway.</li>
+                                <li><span class="status-pill delivered">Delivered</span> Matching and placement steps in progress.</li>
                             </ul>
                         </div>
                         <div class="card">
@@ -150,7 +149,7 @@ if ($trackingId !== "" && $email !== "") {
         <div class="container footer-grid">
             <div>
                 <a class="logo" href="index.html">HopeCare</a>
-                <p>HopeCare provides safety, education, and health programs for orphaned children.</p>
+                <p>HopeCare supports safe, responsible adoption pathways for orphaned children.</p>
             </div>
             <div>
                 <h4>Quick Links</h4>
@@ -159,7 +158,6 @@ if ($trackingId !== "" && $email !== "") {
                     <li><a href="programs.html">Programs</a></li>
                     <li><a href="adoption.php">Adoption</a></li>
                     <li><a href="donation.php">Donate</a></li>
-                    <li><a href="contact.php">Contact</a></li>
                     <li><a href="admin-login.php">Admin Login</a></li>
                 </ul>
             </div>

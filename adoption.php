@@ -6,8 +6,8 @@ $showError = isset($_GET["error"]);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Donate to HopeCare and help orphaned children thrive.">
-    <title>Donate | HopeCare</title>
+    <meta name="description" content="Submit an adoption support request with HopeCare.">
+    <title>Adoption Support | HopeCare</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -22,8 +22,8 @@ $showError = isset($_GET["error"]);
                     <li><a href="index.html">Home</a></li>
                     <li><a href="about.html">About</a></li>
                     <li><a href="programs.html">Programs</a></li>
-                    <li><a href="adoption.php">Adoption</a></li>
-                    <li><a href="donation-track.php">Track</a></li>
+                    <li><a class="active" href="adoption.php">Adoption</a></li>
+                    <li><a href="adoption-track.php">Track</a></li>
                     <li><a href="contact.php">Contact</a></li>
                 </ul>
             </nav>
@@ -34,68 +34,72 @@ $showError = isset($_GET["error"]);
     <main>
         <section class="page-hero">
             <div class="container">
-                <span class="eyebrow">Donate</span>
-                <h1>Support a child with steady care and opportunity.</h1>
-                <p>Your donation funds meals, school supplies, healthcare visits, and safe housing programs.</p>
+                <span class="eyebrow">Adoption Support</span>
+                <h1>Begin the adoption support journey with guided care.</h1>
+                <p>We help families navigate processes, match children with safe homes, and coordinate local authorities.</p>
             </div>
         </section>
 
         <section class="section">
             <div class="container donation-grid">
                 <div class="form-card reveal">
-                    <h2>Make a Donation</h2>
-                    <p>Every contribution is tracked so you can follow the impact of your support.</p>
+                    <h2>Submit Adoption Request</h2>
+                    <p>Provide your details and a care specialist will respond within two business days.</p>
                     <?php if ($showError) { ?>
                         <div class="notice">Please complete all required fields correctly.</div>
                     <?php } ?>
-                    <form method="post" action="donation-submit.php">
+                    <form method="post" action="adoption-submit.php">
                         <div class="form-group">
-                            <label for="donor_name">Full Name</label>
-                            <input id="donor_name" name="donor_name" type="text" required>
+                            <label for="applicant_name">Full Name</label>
+                            <input id="applicant_name" name="applicant_name" type="text" required>
                         </div>
                         <div class="form-group">
-                            <label for="donor_email">Email Address</label>
-                            <input id="donor_email" name="donor_email" type="email" required>
+                            <label for="applicant_email">Email Address</label>
+                            <input id="applicant_email" name="applicant_email" type="email" required>
                         </div>
                         <div class="form-group">
-                            <label for="amount">Donation Amount (USD)</label>
-                            <input id="amount" name="amount" type="number" min="5" step="1" placeholder="50" required>
+                            <label for="applicant_phone">Phone Number</label>
+                            <input id="applicant_phone" name="applicant_phone" type="text" required>
                         </div>
                         <div class="form-group">
-                            <label for="purpose">Donation Purpose</label>
-                            <select id="purpose" name="purpose" required>
-                                <option value="">Select a purpose...</option>
-                                <option value="education">Education support</option>
-                                <option value="health">Healthcare & nutrition</option>
-                                <option value="housing">Safe housing</option>
-                                <option value="emergency">Emergency relief</option>
+                            <label for="child_pref">Child Age Preference</label>
+                            <select id="child_pref" name="child_pref" required>
+                                <option value="">Select a range...</option>
+                                <option value="0-3">0-3 years</option>
+                                <option value="4-8">4-8 years</option>
+                                <option value="9-12">9-12 years</option>
+                                <option value="13-17">13-17 years</option>
                             </select>
                         </div>
                         <div class="form-group">
-                            <label for="note">Message (optional)</label>
-                            <textarea id="note" name="note" placeholder="Share any notes for our team."></textarea>
+                            <label for="location">Preferred Location</label>
+                            <input id="location" name="location" type="text" required>
                         </div>
-                        <button class="btn btn-primary" type="submit">Submit Donation</button>
-                        <p class="hero-note">You will receive a tracking code instantly.</p>
+                        <div class="form-group">
+                            <label for="note">Message (optional)</label>
+                            <textarea id="note" name="note" placeholder="Share any information helpful for the care team."></textarea>
+                        </div>
+                        <button class="btn btn-primary" type="submit">Submit Request</button>
+                        <p class="hero-note">You will receive a tracking code immediately.</p>
                     </form>
                 </div>
                 <div class="stack-card reveal">
                     <div class="card">
-                        <span class="eyebrow">Impact</span>
-                        <h3>$25</h3>
-                        <p>Provides school supplies for one child for a semester.</p>
+                        <span class="eyebrow">Process</span>
+                        <h3>1. Intake review</h3>
+                        <p>Our adoption specialists review your submission and confirm eligibility.</p>
                     </div>
                     <div class="card">
-                        <h3>$60</h3>
-                        <p>Covers medical checkups and basic medicine.</p>
+                        <h3>2. Home study</h3>
+                        <p>We coordinate with local authorities to ensure a safe placement.</p>
                     </div>
                     <div class="card">
-                        <h3>$120</h3>
-                        <p>Funds nutritious meals for a child for an entire month.</p>
+                        <h3>3. Match & placement</h3>
+                        <p>We align children with loving families and provide ongoing support.</p>
                     </div>
                     <div class="card">
-                        <h3>Track your support</h3>
-                        <p>Already donated? <a class="inline-link" href="donation-track.php">Track your donation</a>.</p>
+                        <h3>Track your request</h3>
+                        <p>Already submitted? <a class="inline-link" href="adoption-track.php">Track your request</a>.</p>
                     </div>
                 </div>
             </div>
@@ -106,16 +110,15 @@ $showError = isset($_GET["error"]);
         <div class="container footer-grid">
             <div>
                 <a class="logo" href="index.html">HopeCare</a>
-                <p>HopeCare provides safety, education, and health programs for orphaned children.</p>
+                <p>HopeCare supports safe, responsible adoption pathways for orphaned children.</p>
             </div>
             <div>
                 <h4>Quick Links</h4>
                 <ul>
                     <li><a href="about.html">About</a></li>
                     <li><a href="programs.html">Programs</a></li>
-                    <li><a href="adoption.php">Adoption</a></li>
+                    <li><a href="adoption-track.php">Track Adoption</a></li>
                     <li><a href="donation-track.php">Track Donation</a></li>
-                    <li><a href="contact.php">Contact</a></li>
                     <li><a href="admin-login.php">Admin Login</a></li>
                 </ul>
             </div>
@@ -130,20 +133,6 @@ $showError = isset($_GET["error"]);
             <p>&copy; 2026 HopeCare. All rights reserved.</p>
         </div>
     </footer>
-
-    <button class="sos-btn" type="button" aria-controls="sosModal" onclick="toggleSOS()">SOS</button>
-    <div class="sos-modal" id="sosModal" role="dialog" aria-modal="true" aria-hidden="true">
-        <div class="sos-content">
-            <button class="sos-close" type="button" aria-label="Close" onclick="toggleSOS()">&times;</button>
-            <h2>Emergency SOS</h2>
-            <p>If a child is in immediate danger, contact local authorities immediately or call our emergency response line.</p>
-            <div class="sos-actions">
-                <a class="btn btn-primary" href="tel:+18001234567">Call HopeCare Hotline</a>
-                <a class="btn btn-ghost" href="tel:911">Call Local Emergency (911)</a>
-                <button class="btn btn-outline" type="button" onclick="toggleSOS()">Cancel</button>
-            </div>
-        </div>
-    </div>
 
     <button class="chat-toggle" id="chatToggle" type="button">Chat</button>
     <div class="chat-panel" id="chatPanel" aria-live="polite">
@@ -160,13 +149,6 @@ $showError = isset($_GET["error"]);
         </form>
     </div>
 
-    <script>
-        function toggleSOS() {
-            const modal = document.getElementById("sosModal");
-            const isOpen = modal.classList.toggle("active");
-            modal.setAttribute("aria-hidden", String(!isOpen));
-        }
-    </script>
     <script src="js/chatbot.js"></script>
 </body>
 </html>

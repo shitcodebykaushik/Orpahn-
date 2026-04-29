@@ -1,14 +1,14 @@
 <?php
 $trackingId = isset($_GET["id"]) ? htmlspecialchars($_GET["id"], ENT_QUOTES, "UTF-8") : "";
-$donorEmail = isset($_GET["email"]) ? htmlspecialchars($_GET["email"], ENT_QUOTES, "UTF-8") : "";
+$email = isset($_GET["email"]) ? htmlspecialchars($_GET["email"], ENT_QUOTES, "UTF-8") : "";
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Donation received by HopeCare.">
-    <title>Donation Received | HopeCare</title>
+    <meta name="description" content="Adoption request received by HopeCare.">
+    <title>Request Received | HopeCare</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -23,8 +23,7 @@ $donorEmail = isset($_GET["email"]) ? htmlspecialchars($_GET["email"], ENT_QUOTE
                     <li><a href="index.html">Home</a></li>
                     <li><a href="about.html">About</a></li>
                     <li><a href="programs.html">Programs</a></li>
-                    <li><a href="adoption.php">Adoption</a></li>
-                    <li><a href="donation-track.php">Track</a></li>
+                    <li><a href="adoption-track.php">Track</a></li>
                     <li><a href="contact.php">Contact</a></li>
                 </ul>
             </nav>
@@ -36,15 +35,15 @@ $donorEmail = isset($_GET["email"]) ? htmlspecialchars($_GET["email"], ENT_QUOTE
         <section class="page-hero">
             <div class="container">
                 <span class="eyebrow">Thank You</span>
-                <h1>Your donation has been received.</h1>
-                <p>We have logged your contribution and will keep you updated on its impact.</p>
+                <h1>Your adoption request has been received.</h1>
+                <p>Our care specialists will contact you within two business days.</p>
                 <div class="tracking-card">
                     <p class="tracking-label">Your tracking code</p>
                     <h2><?php echo $trackingId !== "" ? $trackingId : "Check your email"; ?></h2>
                     <p class="hero-note">Use this code with your email to track progress.</p>
                 </div>
                 <div class="hero-actions center">
-                    <a class="btn btn-primary" href="donation-track.php?tracking_id=<?php echo urlencode($trackingId); ?>&email=<?php echo urlencode($donorEmail); ?>">Track Donation</a>
+                    <a class="btn btn-primary" href="adoption-track.php?tracking_id=<?php echo urlencode($trackingId); ?>&email=<?php echo urlencode($email); ?>">Track Request</a>
                     <a class="btn btn-ghost" href="index.html">Back to Home</a>
                 </div>
             </div>
@@ -55,16 +54,15 @@ $donorEmail = isset($_GET["email"]) ? htmlspecialchars($_GET["email"], ENT_QUOTE
         <div class="container footer-grid">
             <div>
                 <a class="logo" href="index.html">HopeCare</a>
-                <p>HopeCare provides safety, education, and health programs for orphaned children.</p>
+                <p>HopeCare supports safe, responsible adoption pathways for orphaned children.</p>
             </div>
             <div>
                 <h4>Quick Links</h4>
                 <ul>
                     <li><a href="about.html">About</a></li>
                     <li><a href="programs.html">Programs</a></li>
-                    <li><a href="adoption.php">Adoption</a></li>
+                    <li><a href="adoption-track.php">Track Adoption</a></li>
                     <li><a href="donation-track.php">Track Donation</a></li>
-                    <li><a href="contact.php">Contact</a></li>
                     <li><a href="admin-login.php">Admin Login</a></li>
                 </ul>
             </div>

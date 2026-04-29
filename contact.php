@@ -11,7 +11,7 @@ $showError = isset($_GET["error"]);
     <link rel="stylesheet" href="css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
     <header class="header">
@@ -22,6 +22,7 @@ $showError = isset($_GET["error"]);
                     <li><a href="index.html">Home</a></li>
                     <li><a href="about.html">About</a></li>
                     <li><a href="programs.html">Programs</a></li>
+                    <li><a href="adoption.php">Adoption</a></li>
                     <li><a href="donation-track.php">Track</a></li>
                     <li><a class="active" href="contact.php">Contact</a></li>
                 </ul>
@@ -95,8 +96,10 @@ $showError = isset($_GET["error"]);
                 <ul>
                     <li><a href="about.html">About</a></li>
                     <li><a href="programs.html">Programs</a></li>
+                    <li><a href="adoption.php">Adoption</a></li>
                     <li><a href="donation-track.php">Track Donation</a></li>
                     <li><a href="contact.php">Contact</a></li>
+                    <li><a href="admin-login.php">Admin Login</a></li>
                 </ul>
             </div>
             <div>

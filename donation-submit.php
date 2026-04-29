@@ -30,8 +30,9 @@ $timestamp = date("Y-m-d H:i:s");
 $trackingId = "HC-" . date("Ymd") . "-" . strtoupper(bin2hex(random_bytes(2)));
 $currency = "USD";
 $status = "Pending";
+$assignedTo = "";
 
-$entry = [$timestamp, $trackingId, $donorName, $donorEmail, number_format($amount, 2, ".", ""), $currency, $purpose, $status, $note];
+$entry = [$timestamp, $trackingId, $donorName, $donorEmail, number_format($amount, 2, ".", ""), $currency, $purpose, $status, $note, $assignedTo];
 
 $dirPath = __DIR__ . "/data";
 $filePath = $dirPath . "/donations.csv";
