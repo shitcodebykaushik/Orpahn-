@@ -1,5 +1,6 @@
 <?php
 require __DIR__ . "/config.php";
+require __DIR__ . "/blockchain.php";
 
 header("Content-Type: application/json");
 
@@ -21,6 +22,40 @@ $message = trim((string) ($input["message"] ?? ""));
 if ($message === "") {
     http_response_code(400);
     echo json_encode(["error" => "Message required"]);
+    exit;
+}
+
+if (preg_match("/\b[a-f0-9]{64}\b/i", $message, $matches)) {
+    $hash = strtolower($matches[0]);
+    $ledger = read_ledger();
+    $found = null;
+    foreach ($ledger as $block) {
+        if (strtolower($block["hash"] ?? "") === $hash) {
+            $found = $block;
+            break;
+        }
+    }
+
+    if ($found === null) {
+        echo json_encode(["reply" => "I could not find that hash in the ledger. Please check the hash and try again."]);
+        exit;
+    }
+
+    $payload = $found["payload"] ?? [];
+    $payloadText = "";
+    foreach ($payload as $key => $value) {
+        $payloadText .= ucfirst($key) . ": " . $value . "\n";
+    }
+
+    $reply = "Ledger entry found:\n" .
+        "Index: " . ($found["index"] ?? "-") . "\n" .
+        "Type: " . ($found["type"] ?? "-") . "\n" .
+        "Record ID: " . ($found["record_id"] ?? "-") . "\n" .
+        "Timestamp: " . ($found["timestamp"] ?? "-") . "\n" .
+        "Prev Hash: " . ($found["prev_hash"] ?? "-") . "\n" .
+        "Payload:\n" . ($payloadText !== "" ? $payloadText : "(none)");
+
+    echo json_encode(["reply" => $reply]);
     exit;
 }
 
